@@ -1,0 +1,157 @@
+.platforms-page {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.platforms-page h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #e63946;
+  font-size: 2.5rem;
+}
+
+.platforms-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.platforms-list {
+  background-color: #1f2937;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.platforms-list h2 {
+  margin-bottom: 1rem;
+  color: #f1faee;
+  font-size: 1.5rem;
+}
+
+.platform-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.platform-tag {
+  background-color: #2c3e50;
+  color: #f1faee;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  border: 2px solid transparent;
+}
+
+.platform-tag:hover {
+  background-color: #34495e;
+}
+
+.platform-tag.selected {
+  background-color: #e63946;
+  border-color: #f1faee;
+}
+
+.filtered-games {
+  margin-top: 1rem;
+}
+
+.filtered-games h2 {
+  margin-bottom: 1.5rem;
+  color: #f1faee;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.game-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  background-color: #1f2937;
+  border-radius: 8px;
+  color: #f1faee;
+  font-size: 1.2rem;
+}
+
+.loading-container,
+.loading-overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  color: #f1faee;
+  font-size: 1.2rem;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #e63946;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (min-width: 768px) {
+  .platforms-container {
+    flex-direction: row;
+  }
+  
+  .platforms-list {
+    flex: 0 0 30%;
+    position: sticky;
+    top: 100px;
+    align-self: flex-start;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+  }
+  
+  .filtered-games {
+    flex: 1;
+    margin-top: 0;
+  }
+}
+
+/* Filter selection indicator */
+.selected-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.selected-filter {
+  background-color: #e63946;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+}
+
+.selected-filter span {
+  margin-right: 0.5rem;
+}
+
+.remove-filter {
+  cursor: pointer;
+  font-weight: bold;
+}

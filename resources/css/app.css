@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import tablet optimizations */
+@import '../js/css/TabletOptimizations.css';
+@import '../js/css/AdminTabletOptimizations.css';
+@import '../js/css/DeveloperTabletOptimizations.css';
+@import '../js/css/UserTabletOptimizations.css';
+@import '../js/css/AuthTabletOptimizations.css';

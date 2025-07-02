@@ -1,0 +1,384 @@
+.video-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's above everything else */
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.video-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 90vh;
+  animation: scaleIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  z-index: 10000; /* Higher than backdrop */
+}
+
+.video-modal-content.fullscreen {
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 170, 255, 0.3);
+}
+
+.video-modal-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #000;
+  z-index: 1;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 50px;
+  height: 40px;
+  background-color: rgba(131, 56, 236, 0.9);
+  color: white;
+  border: 3px solid rgba(255, 255, 255, 0.7);
+  border-radius: 45px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10002; /* Higher than player */
+  box-shadow: 0 0 20px rgba(131, 56, 236, 0.8);
+  padding: 0 35px;
+}
+
+.close-icon {
+  font-size: 28px;
+  margin-right: 8px;
+  line-height: 1;
+}
+
+.close-text {
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.video-modal-close:hover,
+.video-modal-close:focus {
+  background-color: rgba(255, 0, 0, 0.8);
+  transform: translateX(-50%) scale(1.1);
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+  outline: none;
+}
+
+/* Custom video controls */
+.video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  padding: 30px 20px 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+.video-controls.visible {
+  opacity: 1;
+}
+
+.control-button {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.control-button:hover {
+  background: rgba(255,255,255,0.4);
+  transform: scale(1.1);
+}
+
+.time-display {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 50px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.progress-bar-container {
+  flex: 1;
+  height: 8px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.progress-bar-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.2);
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #4e63ff, #8338ec);
+  border-radius: 4px;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* Play overlay for mobile */
+.play-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.play-overlay.playing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.play-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.play-overlay:active .play-icon {
+  transform: scale(0.9);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
+/* Media queries for responsive design */
+
+/* Mobile Styles (up to 767px) */
+@media (max-width: 767px) {
+  .video-modal-close {
+    top: -50px;
+    min-width: 100px;
+    height: 44px;
+    font-size: 16px;
+  }
+
+  .close-icon {
+    font-size: 24px;
+    margin-right: 6px;
+  }
+
+  .video-modal-content {
+    width: 95%;
+    max-width: 95vw;
+  }
+
+  /* Larger controls for touch */
+  .control-button {
+    width: 48px;
+    height: 48px;
+  }
+
+  .progress-bar-container {
+    height: 10px;
+  }
+
+  .time-display {
+    font-size: 12px;
+    min-width: 45px;
+  }
+}
+
+/* Small Mobile Styles (up to 480px) */
+@media (max-width: 480px) {
+  .video-modal-close {
+    top: -40px;
+    min-width: 90px;
+    height: 40px;
+    font-size: 14px;
+    padding: 0 10px;
+  }
+
+  .close-icon {
+    font-size: 22px;
+    margin-right: 5px;
+  }
+
+  .video-modal-content {
+    width: 98%;
+  }
+
+  /* Simplified controls for small screens */
+  .video-controls {
+    padding: 35px 15px 12px;
+  }
+
+  .control-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .time-display.current-time {
+    display: none; /* Hide current time on very small screens */
+  }
+
+  .progress-bar-container {
+    height: 12px; /* Even larger for easier touch */
+  }
+}
+
+/* Tablet Styles (768px-1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .video-modal-content {
+    width: 90%;
+    max-width: 90vw;
+  }
+
+  .video-modal-close {
+    top: -55px;
+    min-width: 120px;
+    height: 46px;
+    font-size: 17px;
+  }
+
+  .close-icon {
+    font-size: 26px;
+    margin-right: 8px;
+  }
+
+  /* Optimized controls for tablet */
+  .video-controls {
+    padding: 25px 20px 15px;
+  }
+
+  .control-button {
+    width: 46px;
+    height: 46px;
+  }
+
+  .progress-bar-container {
+    height: 8px;
+  }
+
+  /* Additional tablet-specific controls */
+  .tablet-video-controls {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+    z-index: 5;
+  }
+
+  .tablet-control-button {
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .tablet-control-button:hover {
+    background: rgba(78, 99, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Landscape-specific adjustments */
+  @media (orientation: landscape) {
+    .video-modal-content {
+      width: 85%;
+      max-height: 85vh;
+    }
+
+    .video-container {
+      max-height: 80vh;
+    }
+
+    /* Side controls for landscape mode */
+    .tablet-video-controls.landscape {
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      flex-direction: column;
+    }
+  }
+
+  /* Portrait-specific adjustments */
+  @media (orientation: portrait) {
+    .video-modal-content {
+      width: 95%;
+    }
+
+    .video-container {
+      max-height: 50vh;
+    }
+  }
+}

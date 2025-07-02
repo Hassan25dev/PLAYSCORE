@@ -1,0 +1,689 @@
+/* Comments and Reviews Sections Styling */
+
+/* Common section styling */
+.comments-section,
+.reviews-section {
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #1e2235, #2a2f4c);
+  border: 1px solid rgba(78, 99, 255, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* Mobile optimization for comments section */
+@media (max-width: 768px) {
+  .comments-section,
+  .reviews-section {
+    padding: 20px 15px;
+    margin-top: 30px;
+  }
+}
+
+.comments-section:hover,
+.reviews-section:hover {
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(78, 99, 255, 0.2);
+  border-color: rgba(131, 56, 236, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Section headings */
+.comments-section h2,
+.reviews-section h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #4e63ff, #8338ec);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(78, 99, 255, 0.3);
+}
+
+/* Mobile optimization for headings */
+@media (max-width: 768px) {
+  .comments-section h2,
+  .reviews-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  }
+}
+
+.comments-section h2::after,
+.reviews-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #4e63ff, #8338ec, transparent);
+  border-radius: 3px;
+  transition: all 0.4s ease;
+}
+
+.comments-section:hover h2::after,
+.reviews-section:hover h2::after {
+  width: 200px;
+  background: linear-gradient(90deg, #4e63ff, #8338ec, #4e63ff);
+}
+
+/* Section icons */
+.comments-section h2 svg,
+.reviews-section h2 svg {
+  margin-right: 10px;
+  fill: url(#gradient);
+  filter: drop-shadow(0 0 5px rgba(78, 99, 255, 0.5));
+}
+
+/* Form styling */
+.comment-form,
+.review-form {
+  background: rgba(30, 34, 53, 0.8);
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+  border: 1px solid rgba(78, 99, 255, 0.25);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Mobile optimization for forms */
+@media (max-width: 768px) {
+  .comment-form,
+  .review-form {
+    padding: 20px 15px;
+    margin-bottom: 20px;
+  }
+}
+
+.comment-form:hover,
+.review-form:hover {
+  background: rgba(35, 41, 66, 0.9);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(78, 99, 255, 0.2);
+  border-color: rgba(131, 56, 236, 0.3);
+}
+
+/* Form headings */
+.comment-form h3,
+.review-form h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(90deg, #4e63ff, #8338ec);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Form labels */
+.comment-form label,
+.review-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #b8c0ff;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Form inputs */
+.comment-form textarea,
+.review-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  background: rgba(25, 28, 45, 0.7);
+  border: 1px solid rgba(78, 99, 255, 0.2);
+  color: #d8e2fd;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  resize: vertical;
+  min-height: 120px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.comment-form textarea:focus,
+.review-form textarea:focus {
+  outline: none;
+  border-color: #8338ec;
+  box-shadow: 0 0 0 2px rgba(131, 56, 236, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  background: rgba(30, 34, 53, 0.9);
+}
+
+/* Form buttons */
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+/* Mobile optimization for form buttons */
+@media (max-width: 768px) {
+  .form-buttons {
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+
+  .cancel-button,
+  .submit-button {
+    width: 100%;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.cancel-button {
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: rgba(25, 28, 45, 0.7);
+  color: #b8c0ff;
+  border: 1px solid rgba(78, 99, 255, 0.2);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+  background: rgba(35, 41, 66, 0.9);
+  color: #d8e2fd;
+}
+
+.submit-button {
+  padding: 10px 25px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #4e63ff, #3a4db8);
+  color: #ffffff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #8338ec, #6025b0);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(78, 99, 255, 0.4);
+}
+
+/* Star rating */
+.star-rating {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.star {
+  font-size: 2rem;
+  cursor: pointer;
+  color: #4e4e4e;
+  transition: all 0.2s ease;
+}
+
+.star:hover,
+.star.filled {
+  color: #4e63ff;
+  text-shadow: 0 0 10px rgba(78, 99, 255, 0.7);
+}
+
+.star.filled.hover-effect {
+  color: #8338ec;
+  transform: scale(1.1);
+  text-shadow: 0 0 15px rgba(131, 56, 236, 0.9);
+}
+
+/* Comments and reviews list */
+.comments-list,
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Individual comment/review */
+.comment-item,
+.review-item {
+  background: rgba(30, 34, 53, 0.6);
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(78, 99, 255, 0.15);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Mobile optimization for comment items */
+@media (max-width: 768px) {
+  .comment-item,
+  .review-item {
+    padding: 15px;
+  }
+
+  .comments-list,
+  .reviews-list {
+    gap: 15px;
+  }
+}
+
+.comment-item:hover,
+.review-item:hover {
+  background: rgba(35, 41, 66, 0.7);
+  border-color: rgba(131, 56, 236, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(78, 99, 255, 0.2);
+  transform: translateY(-3px);
+}
+
+/* Comment/review header */
+.comment-header,
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(78, 99, 255, 0.2);
+  cursor: pointer;
+}
+
+/* Expand/collapse button */
+.comment-expand-button {
+  background: none;
+  border: none;
+  color: #b8c0ff;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.expand-icon {
+  transition: transform 0.3s ease;
+}
+
+.expand-icon.expanded {
+  transform: rotate(180deg);
+}
+
+/* User info */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4e63ff, #8338ec);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.user-avatar.small {
+  width: 30px;
+  height: 30px;
+  font-size: 0.9rem;
+}
+
+.user-name {
+  font-weight: 700;
+  color: #d8e2fd;
+  font-size: 1.1rem;
+}
+
+.comment-date,
+.review-date {
+  font-size: 0.85rem;
+  color: #b8c0ff;
+}
+
+/* Mobile optimization for user info */
+@media (max-width: 768px) {
+  .user-avatar {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .user-avatar.small {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .user-name {
+    font-size: 1rem;
+  }
+
+  .comment-date,
+  .review-date {
+    font-size: 0.75rem;
+  }
+
+  .comment-content,
+  .review-content {
+    font-size: 0.95rem;
+  }
+}
+
+/* Comment/review content */
+.comment-content,
+.review-content {
+  color: #d8e2fd;
+  line-height: 1.6;
+  font-size: 1rem;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+/* Collapsed state for mobile */
+@media (max-width: 768px) {
+  .comment-content.collapsed {
+    max-height: 80px;
+    overflow: hidden;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  }
+
+  .comment-content.expanded {
+    max-height: 1000px;
+  }
+}
+
+/* Comment replies */
+.comment-replies {
+  margin-top: 15px;
+  padding-left: 20px;
+  border-left: 2px solid rgba(78, 99, 255, 0.3);
+}
+
+.reply-item {
+  background: rgba(25, 28, 45, 0.5);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 10px;
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  background: rgba(30, 34, 53, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(78, 99, 255, 0.15);
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  color: #4e63ff;
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+.empty-state-text {
+  color: #b8c0ff;
+  font-size: 1.1rem;
+}
+
+/* Add comment/review button */
+.add-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #4e63ff, #3a4db8);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.add-button:hover {
+  background: linear-gradient(135deg, #8338ec, #6025b0);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(78, 99, 255, 0.4);
+}
+
+.add-button svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Floating comment button */
+.floating-comment-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4e63ff, #8338ec);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(78, 99, 255, 0.4);
+  cursor: pointer;
+  z-index: 100;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-comment-button:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(78, 99, 255, 0.6);
+}
+
+/* Comments pagination */
+.comments-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.comments-pagination .pagination-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(30, 34, 53, 0.7);
+  color: #b8c0ff;
+  border: 1px solid rgba(78, 99, 255, 0.2);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.comments-pagination .pagination-button:hover {
+  background: rgba(35, 41, 66, 0.9);
+  border-color: rgba(131, 56, 236, 0.3);
+  color: #d8e2fd;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.comments-pagination .pagination-button.active {
+  background: linear-gradient(135deg, #4e63ff, #3a4db8);
+  color: white;
+  border: none;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.comments-pagination .pagination-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.comments-pagination .pagination-ellipsis {
+  color: #b8c0ff;
+  font-weight: bold;
+  padding: 0 5px;
+}
+
+/* Mobile optimization for pagination */
+@media (max-width: 768px) {
+  .comments-pagination {
+    gap: 5px;
+    margin-top: 20px;
+  }
+
+  .comments-pagination .pagination-button {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Responsive adjustments */
+
+/* Mobile Styles (up to 767px) */
+@media (max-width: 767px) {
+  .comments-section,
+  .reviews-section {
+    padding: 20px 15px;
+  }
+
+  .comment-form,
+  .review-form {
+    padding: 15px;
+  }
+
+  .comment-form textarea,
+  .review-form textarea {
+    min-height: 100px;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+
+  .comment-form button,
+  .review-form button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    min-height: 44px; /* Larger touch target */
+  }
+
+  /* Adjust floating button position for smaller screens */
+  .floating-comment-button {
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+/* Tablet Styles (768px-1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .comments-section,
+  .reviews-section {
+    padding: 25px;
+    margin-top: 35px;
+  }
+
+  .comments-section h2,
+  .reviews-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 22px;
+  }
+
+  /* Hybrid comment view for tablets */
+  .comment-item,
+  .review-item {
+    padding: 20px;
+    transition: all 0.3s ease;
+  }
+
+  /* Semi-collapsed state for tablet */
+  .comment-content.collapsed {
+    max-height: 120px; /* Show more content than on mobile */
+    overflow: hidden;
+    position: relative;
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+
+  /* Improved touch targets for tablet */
+  .comment-expand-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .user-avatar {
+    width: 45px;
+    height: 45px;
+  }
+
+  /* Floating button position for tablet */
+  .floating-comment-button {
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+  }
+
+  /* Landscape-specific adjustments */
+  @media (orientation: landscape) {
+    .comments-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .comment-item {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .comment-content {
+      flex: 1;
+    }
+
+    /* Position floating button differently in landscape */
+    .floating-comment-button {
+      bottom: 25px;
+      right: 25px;
+    }
+  }
+
+  /* Portrait-specific adjustments */
+  @media (orientation: portrait) {
+    .comments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Position floating button for portrait */
+    .floating-comment-button {
+      bottom: 25px;
+      right: 25px;
+    }
+  }
+}

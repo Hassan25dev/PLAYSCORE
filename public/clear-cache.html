@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear Browser Cache and Cookies</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2563eb;
+        }
+        .card {
+            background-color: #f9fafb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .warning-card {
+            background-color: #fff7ed;
+            border-left: 4px solid #f59e0b;
+        }
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 8px;
+        }
+        button:hover {
+            background-color: #1d4ed8;
+        }
+        .success-message {
+            display: none;
+            background-color: #ecfdf5;
+            color: #10b981;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .steps {
+            margin-left: 20px;
+        }
+        .steps li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clear Browser Cache and Cookies</h1>
+    
+    <div class="card warning-card">
+        <h2>Warning</h2>
+        <p>This will clear your browser's cache and cookies for this website. You will be logged out of any active sessions.</p>
+    </div>
+    
+    <div class="card">
+        <h2>What This Does</h2>
+        <p>Clearing your browser cache and cookies can help resolve many loading issues with web applications, including:</p>
+        <ul>
+            <li>Infinite loading screens</li>
+            <li>JavaScript errors due to outdated cached files</li>
+            <li>Login/authentication problems</li>
+            <li>Incorrect or outdated content being displayed</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h2>Clear Cache and Cookies</h2>
+        <p>Click the button below to clear your browser's cache and cookies for this website:</p>
+        <button id="clear-button" onclick="clearCacheAndCookies()">Clear Cache and Cookies</button>
+        <div id="success-message" class="success-message">
+            Cache and cookies cleared successfully! The page will reload in 3 seconds...
+        </div>
+    </div>
+    
+    <div class="card">
+        <h2>Manual Instructions</h2>
+        <p>If the automatic method doesn't work, you can clear your cache and cookies manually:</p>
+        
+        <h3>Chrome / Edge</h3>
+        <ol class="steps">
+            <li>Press <strong>Ctrl+Shift+Delete</strong> (Windows) or <strong>Cmd+Shift+Delete</strong> (Mac)</li>
+            <li>Set time range to "All time"</li>
+            <li>Check "Cookies and other site data" and "Cached images and files"</li>
+            <li>Click "Clear data"</li>
+        </ol>
+        
+        <h3>Firefox</h3>
+        <ol class="steps">
+            <li>Press <strong>Ctrl+Shift+Delete</strong> (Windows) or <strong>Cmd+Shift+Delete</strong> (Mac)</li>
+            <li>Set time range to "Everything"</li>
+            <li>Check "Cookies" and "Cache"</li>
+            <li>Click "Clear Now"</li>
+        </ol>
+        
+        <h3>Safari</h3>
+        <ol class="steps">
+            <li>Go to Safari menu > Preferences > Privacy</li>
+            <li>Click "Manage Website Data"</li>
+            <li>Search for this website and select it</li>
+            <li>Click "Remove" and confirm</li>
+            <li>Go to Safari menu > "Clear History..." and select a time range</li>
+        </ol>
+    </div>
+    
+    <script>
+        function clearCacheAndCookies() {
+            // Disable the button while processing
+            document.getElementById('clear-button').disabled = true;
+            
+            // Clear localStorage
+            localStorage.clear();
+            
+            // Clear sessionStorage
+            sessionStorage.clear();
+            
+            // Clear cookies for this domain
+            const cookies = document.cookie.split(";");
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i];
+                const eqPos = cookie.indexOf("=");
+                const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+            }
+            
+            // Try to clear application cache if available
+            if (window.applicationCache) {
+                try {
+                    window.applicationCache.abort();
+                } catch (e) {
+                    console.error("Error clearing application cache:", e);
+                }
+            }
+            
+            // Try to clear browser cache using Cache API if available
+            if ('caches' in window) {
+                caches.keys().then(function(names) {
+                    for (let name of names) {
+                        caches.delete(name);
+                    }
+                });
+            }
+            
+            // Show success message
+            document.getElementById('success-message').style.display = 'block';
+            
+            // Reload the page after a short delay
+            setTimeout(function() {
+                window.location.href = '/';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

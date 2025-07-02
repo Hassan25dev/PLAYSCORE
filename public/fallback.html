@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayScore - Emergency Fallback</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2563eb;
+        }
+        .card {
+            background-color: #f9fafb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .error-card {
+            background-color: #fee2e2;
+            border-left: 4px solid #ef4444;
+        }
+        .solution-card {
+            background-color: #ecfdf5;
+            border-left: 4px solid #10b981;
+        }
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+        button:hover {
+            background-color: #1d4ed8;
+        }
+        code {
+            background-color: #e5e7eb;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        .steps {
+            margin-left: 20px;
+        }
+        .steps li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>PlayScore - Application Loading Issue</h1>
+    
+    <div class="card error-card">
+        <h2>What's happening?</h2>
+        <p>The application is experiencing difficulty loading. This could be due to several reasons:</p>
+        <ul>
+            <li>The Vite development server is not running or not accessible</li>
+            <li>There's a JavaScript error preventing the application from initializing</li>
+            <li>Network connectivity issues between your browser and the servers</li>
+            <li>Browser cache or cookie issues</li>
+        </ul>
+    </div>
+    
+    <div class="card solution-card">
+        <h2>Try these solutions:</h2>
+        
+        <ol class="steps">
+            <li>
+                <strong>Clear your browser cache and cookies</strong>
+                <p>This can resolve many loading issues caused by stale or corrupted data.</p>
+                <button onclick="clearCacheAndReload()">Clear Cache & Reload</button>
+            </li>
+            
+            <li>
+                <strong>Check if the servers are running</strong>
+                <p>Make sure both Laravel and Vite servers are running in your terminal/command prompt.</p>
+                <div>
+                    <button onclick="testLaravelServer()">Test Laravel Server</button>
+                    <button onclick="testViteServer()">Test Vite Server</button>
+                </div>
+                <div id="server-status"></div>
+            </li>
+            
+            <li>
+                <strong>Try a different browser</strong>
+                <p>Sometimes browser-specific issues can cause loading problems.</p>
+            </li>
+            
+            <li>
+                <strong>Restart the development servers</strong>
+                <p>In your terminal, stop and restart both the Laravel and Vite servers:</p>
+                <code>php artisan serve</code> (in one terminal)<br>
+                <code>npm run dev</code> (in another terminal)
+            </li>
+            
+            <li>
+                <strong>Check browser console for errors</strong>
+                <p>Press F12 to open developer tools, go to the Console tab, and look for error messages.</p>
+                <button onclick="showConsoleInstructions()">How to check console</button>
+                <div id="console-instructions" style="display: none; margin-top: 10px; padding: 10px; background-color: #f3f4f6; border-radius: 4px;">
+                    <p><strong>To check the console in different browsers:</strong></p>
+                    <ul>
+                        <li><strong>Chrome/Edge:</strong> Press F12, then click on "Console" tab</li>
+                        <li><strong>Firefox:</strong> Press F12, then click on "Console" tab</li>
+                        <li><strong>Safari:</strong> Enable Developer menu from Preferences > Advanced, then Develop > Show JavaScript Console</li>
+                    </ul>
+                    <p>Look for red error messages that might indicate what's going wrong.</p>
+                </div>
+            </li>
+        </ol>
+    </div>
+    
+    <div class="card">
+        <h2>Still having issues?</h2>
+        <p>Try accessing these simplified test routes to diagnose the problem:</p>
+        <ul>
+            <li><a href="/ultra-simple" target="_blank">Ultra Simple Test</a> - Basic Laravel route</li>
+            <li><a href="/json-test" target="_blank">JSON Test</a> - API response test</li>
+            <li><a href="/db-test" target="_blank">Database Test</a> - Check database connectivity</li>
+            <li><a href="/vite-test.html" target="_blank">Vite Connection Test</a> - Test Vite server connectivity</li>
+        </ul>
+    </div>
+
+    <script>
+        function clearCacheAndReload() {
+            if ('caches' in window) {
+                caches.keys().then(function(names) {
+                    for (let name of names) caches.delete(name);
+                });
+            }
+            localStorage.clear();
+            sessionStorage.clear();
+            
+            // Clear cookies
+            document.cookie.split(";").forEach(function(c) {
+                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+            });
+            
+            alert('Cache and cookies cleared. The page will now reload.');
+            window.location.reload(true);
+        }
+        
+        function testLaravelServer() {
+            document.getElementById('server-status').innerHTML = 'Testing Laravel server...';
+            
+            fetch('/json-test')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('server-status').innerHTML = 
+                        '<p style="color: green;">✓ Laravel server is working! Response: ' + 
+                        JSON.stringify(data) + '</p>';
+                })
+                .catch(error => {
+                    document.getElementById('server-status').innerHTML = 
+                        '<p style="color: red;">✗ Laravel server test failed: ' + error.message + '</p>';
+                });
+        }
+        
+        function testViteServer() {
+            document.getElementById('server-status').innerHTML = 'Testing Vite server...';
+            
+            fetch('http://localhost:5176', { mode: 'no-cors' })
+                .then(() => {
+                    document.getElementById('server-status').innerHTML += 
+                        '<p style="color: green;">✓ Vite server appears to be running!</p>';
+                })
+                .catch(error => {
+                    document.getElementById('server-status').innerHTML += 
+                        '<p style="color: red;">✗ Vite server test failed: ' + error.message + '</p>';
+                });
+        }
+        
+        function showConsoleInstructions() {
+            const instructions = document.getElementById('console-instructions');
+            if (instructions.style.display === 'none') {
+                instructions.style.display = 'block';
+            } else {
+                instructions.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+{
+    "name": "playscore_v3",
+    "version": "1.0.0",
+    "description": "Plateforme de jeux vidéo avec fonctionnalités d'évaluation et de soumission",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "serve": "vite preview"
+    },
+    "dependencies": {
+        "@inertiajs/react": "^1.0.0",
+        "@reduxjs/toolkit": "^2.7.0",
+        "axios": "^1.6.0",
+        "chart.js": "^4.4.9",
+        "lodash": "^4.17.19",
+        "react": "^18.3.1",
+        "react-chartjs-2": "^5.3.0",
+        "react-dom": "^18.3.1",
+        "react-redux": "^9.2.0"
+    },
+    "devDependencies": {
+        "@headlessui/react": "^1.4.2",
+        "@tailwindcss/forms": "^0.5.3",
+        "@tailwindcss/typography": "^0.3.0",
+        "@vitejs/plugin-react": "^4.2.0",
+        "autoprefixer": "^10.4.12",
+        "laravel-vite-plugin": "^1.2.0",
+        "postcss": "^8.4.31",
+        "postcss-import": "^12.0.1",
+        "sass": "^1.32.0",
+        "sass-loader": "^10.0.0",
+        "tailwindcss": "^3.2.1",
+        "vite": "^6.0.0"
+    }
+}

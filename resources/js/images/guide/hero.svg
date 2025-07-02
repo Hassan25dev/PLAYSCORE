@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4a148c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7b1fa2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:white;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:white;stop-opacity:0.05" />
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#heroGrad)" />
+  
+  <!-- Abstract Pattern -->
+  <circle cx="100" cy="100" r="200" fill="white" opacity="0.03" />
+  <circle cx="1100" cy="500" r="250" fill="white" opacity="0.03" />
+  <circle cx="600" cy="0" r="150" fill="white" opacity="0.03" />
+  <circle cx="300" cy="550" r="180" fill="white" opacity="0.03" />
+  <circle cx="900" cy="150" r="120" fill="white" opacity="0.03" />
+  
+  <!-- Title -->
+  <text x="600" y="180" font-family="Arial" font-size="48" font-weight="bold" fill="white" text-anchor="middle">PlayScore User Guide</text>
+  <text x="600" y="240" font-family="Arial" font-size="24" fill="rgba(255,255,255,0.8)" text-anchor="middle">Learn how to make the most of your gaming experience</text>
+  
+  <!-- Feature Cards -->
+  <g transform="translate(150, 300)">
+    <!-- Card 1 -->
+    <rect width="250" height="200" rx="10" ry="10" fill="url(#cardGrad)" stroke="white" stroke-width="1" stroke-opacity="0.3" />
+    <circle cx="50" cy="50" r="30" fill="white" opacity="0.2" />
+    <text x="50" y="50" font-family="Arial" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">1</text>
+    <text x="125" y="110" font-family="Arial" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Track Games</text>
+    <text x="125" y="140" font-family="Arial" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" width="200">Manage your gaming collection</text>
+  </g>
+  
+  <g transform="translate(450, 300)">
+    <!-- Card 2 -->
+    <rect width="250" height="200" rx="10" ry="10" fill="url(#cardGrad)" stroke="white" stroke-width="1" stroke-opacity="0.3" />
+    <circle cx="50" cy="50" r="30" fill="white" opacity="0.2" />
+    <text x="50" y="50" font-family="Arial" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">2</text>
+    <text x="125" y="110" font-family="Arial" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Rate & Review</text>
+    <text x="125" y="140" font-family="Arial" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" width="200">Share your gaming experiences</text>
+  </g>
+  
+  <g transform="translate(750, 300)">
+    <!-- Card 3 -->
+    <rect width="250" height="200" rx="10" ry="10" fill="url(#cardGrad)" stroke="white" stroke-width="1" stroke-opacity="0.3" />
+    <circle cx="50" cy="50" r="30" fill="white" opacity="0.2" />
+    <text x="50" y="50" font-family="Arial" font-size="24" fill="white" text-anchor="middle" dominant-baseline="middle">3</text>
+    <text x="125" y="110" font-family="Arial" font-size="18" font-weight="bold" fill="white" text-anchor="middle">Discover</text>
+    <text x="125" y="140" font-family="Arial" font-size="14" fill="rgba(255,255,255,0.8)" text-anchor="middle" width="200">Find new games you'll love</text>
+  </g>
+  
+  <!-- Controller Icon -->
+  <g transform="translate(600, 520)">
+    <!-- Controller Body -->
+    <rect x="-40" y="-20" width="80" height="40" rx="20" ry="20" fill="white" opacity="0.2" />
+    
+    <!-- Left Stick -->
+    <circle cx="-20" cy="0" r="15" fill="white" opacity="0.3" />
+    <circle cx="-20" cy="0" r="10" fill="white" opacity="0.2" />
+    
+    <!-- Right Stick -->
+    <circle cx="20" cy="0" r="15" fill="white" opacity="0.3" />
+    <circle cx="20" cy="0" r="10" fill="white" opacity="0.2" />
+    
+    <!-- Buttons -->
+    <circle cx="50" cy="-10" r="8" fill="white" opacity="0.3" />
+    <circle cx="70" cy="0" r="8" fill="white" opacity="0.3" />
+    <circle cx="50" cy="10" r="8" fill="white" opacity="0.3" />
+    <circle cx="30" cy="0" r="8" fill="white" opacity="0.3" />
+    
+    <!-- D-Pad -->
+    <rect x="-70" y="-10" width="20" height="20" rx="2" ry="2" fill="white" opacity="0.3" />
+    <rect x="-65" y="-15" width="10" height="30" rx="2" ry="2" fill="white" opacity="0.2" />
+    <rect x="-75" y="-5" width="30" height="10" rx="2" ry="2" fill="white" opacity="0.2" />
+  </g>
+</svg>

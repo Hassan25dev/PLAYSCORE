@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functionality Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2563eb;
+        }
+        .test-card {
+            background-color: #f9fafb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .success {
+            color: #10b981;
+        }
+        .error {
+            color: #ef4444;
+        }
+        .warning {
+            color: #f59e0b;
+        }
+        .pending {
+            color: #6b7280;
+        }
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        button:hover {
+            background-color: #1d4ed8;
+        }
+        pre {
+            background-color: #f1f5f9;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        #canvas-test {
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Functionality Test</h1>
+    <p>This page tests various JavaScript features to ensure your browser is compatible with the PlayScore application.</p>
+    
+    <div class="test-card">
+        <h2>Basic JavaScript</h2>
+        <div id="basic-js-status" class="pending">Testing...</div>
+        <button onclick="runBasicJsTest()">Run Test</button>
+    </div>
+    
+    <div class="test-card">
+        <h2>ES6 Features</h2>
+        <div id="es6-status" class="pending">Testing...</div>
+        <button onclick="runES6Test()">Run Test</button>
+    </div>
+    
+    <div class="test-card">
+        <h2>Fetch API</h2>
+        <div id="fetch-status" class="pending">Testing...</div>
+        <button onclick="runFetchTest()">Run Test</button>
+    </div>
+    
+    <div class="test-card">
+        <h2>Local Storage</h2>
+        <div id="storage-status" class="pending">Testing...</div>
+        <button onclick="runStorageTest()">Run Test</button>
+    </div>
+    
+    <div class="test-card">
+        <h2>Canvas Support</h2>
+        <div id="canvas-status" class="pending">Testing...</div>
+        <canvas id="canvas-test" width="300" height="150"></canvas>
+        <button onclick="runCanvasTest()">Run Test</button>
+    </div>
+    
+    <div class="test-card">
+        <h2>WebSockets</h2>
+        <div id="websocket-status" class="pending">Testing...</div>
+        <button onclick="runWebSocketTest()">Run Test</button>
+    </div>
+    
+    <div class="test-card">
+        <h2>Browser Information</h2>
+        <pre id="browser-info"></pre>
+    </div>
+    
+    <div class="test-card">
+        <h2>Run All Tests</h2>
+        <button onclick="runAllTests()">Run All Tests</button>
+        <div id="all-tests-result"></div>
+    </div>
+    
+    <script>
+        // Display browser information
+        document.getElementById('browser-info').textContent = `
+User Agent: ${navigator.userAgent}
+Platform: ${navigator.platform}
+Cookies Enabled: ${navigator.cookieEnabled}
+Language: ${navigator.language}
+Online: ${navigator.onLine}
+Screen Resolution: ${window.screen.width}x${window.screen.height}
+Window Size: ${window.innerWidth}x${window.innerHeight}
+Device Pixel Ratio: ${window.devicePixelRatio}
+        `;
+        
+        // Basic JavaScript test
+        function runBasicJsTest() {
+            const statusEl = document.getElementById('basic-js-status');
+            statusEl.className = 'pending';
+            statusEl.textContent = 'Testing...';
+            
+            try {
+                // Test basic operations
+                const num = 42;
+                const str = "Hello, world!";
+                const arr = [1, 2, 3];
+                const obj = { name: "Test", value: 123 };
+                
+                // Test function declaration and execution
+                function add(a, b) {
+                    return a + b;
+                }
+                
+                const result = add(2, 3);
+                
+                if (result === 5 && arr.length === 3 && obj.name === "Test") {
+                    statusEl.className = 'success';
+                    statusEl.textContent = '✓ Basic JavaScript is working correctly!';
+                } else {
+                    throw new Error("Basic operations failed");
+                }
+            } catch (error) {
+                statusEl.className = 'error';
+                statusEl.textContent = `✗ Basic JavaScript test failed: ${error.message}`;
+            }
+        }
+        
+        // ES6 Features test
+        function runES6Test() {
+            const statusEl = document.getElementById('es6-status');
+            statusEl.className = 'pending';
+            statusEl.textContent = 'Testing...';
+            
+            try {
+                // Test arrow functions
+                const arrowFunc = (x) => x * 2;
+                
+                // Test let/const
+                let x = 10;
+                const y = 20;
+                
+                // Test template literals
+                const name = "World";
+                const greeting = `Hello, ${name}!`;
+                
+                // Test destructuring
+                const person = { firstName: "John", lastName: "Doe" };
+                const { firstName, lastName } = person;
+                
+                // Test spread operator
+                const arr1 = [1, 2, 3];
+                const arr2 = [...arr1, 4, 5];
+                
+                // Test Promises
+                const promise = new Promise((resolve) => {
+                    resolve("Promise resolved");
+                });
+                
+                // Test async/await
+                async function testAsync() {
+                    return "Async function works";
+                }
+                
+                // Check if all tests pass
+                if (
+                    arrowFunc(5) === 10 &&
+                    greeting === "Hello, World!" &&
+                    firstName === "John" &&
+                    arr2.length === 5 &&
+                    typeof promise.then === 'function' &&
+                    typeof testAsync === 'function'
+                ) {
+                    statusEl.className = 'success';
+                    statusEl.textContent = '✓ ES6 features are supported!';
+                } else {
+                    throw new Error("ES6 features test failed");
+                }
+            } catch (error) {
+                statusEl.className = 'error';
+                statusEl.textContent = `✗ ES6 features test failed: ${error.message}`;
+            }
+        }
+        
+        // Fetch API test
+        function runFetchTest() {
+            const statusEl = document.getElementById('fetch-status');
+            statusEl.className = 'pending';
+            statusEl.textContent = 'Testing...';
+            
+            if (typeof fetch !== 'function') {
+                statusEl.className = 'error';
+                statusEl.textContent = '✗ Fetch API is not supported in this browser';
+                return;
+            }
+            
+            fetch('/json-test')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    statusEl.className = 'success';
+                    statusEl.textContent = '✓ Fetch API is working correctly!';
+                })
+                .catch(error => {
+                    statusEl.className = 'error';
+                    statusEl.textContent = `✗ Fetch API test failed: ${error.message}`;
+                });
+        }
+        
+        // Local Storage test
+        function runStorageTest() {
+            const statusEl = document.getElementById('storage-status');
+            statusEl.className = 'pending';
+            statusEl.textContent = 'Testing...';
+            
+            try {
+                // Test localStorage
+                localStorage.setItem('test_key', 'test_value');
+                const storedValue = localStorage.getItem('test_key');
+                localStorage.removeItem('test_key');
+                
+                // Test sessionStorage
+                sessionStorage.setItem('session_test', 'session_value');
+                const sessionValue = sessionStorage.getItem('session_test');
+                sessionStorage.removeItem('session_test');
+                
+                if (storedValue === 'test_value' && sessionValue === 'session_value') {
+                    statusEl.className = 'success';
+                    statusEl.textContent = '✓ Local Storage is working correctly!';
+                } else {
+                    throw new Error("Storage values don't match");
+                }
+            } catch (error) {
+                statusEl.className = 'error';
+                statusEl.textContent = `✗ Local Storage test failed: ${error.message}`;
+            }
+        }
+        
+        // Canvas test
+        function runCanvasTest() {
+            const statusEl = document.getElementById('canvas-status');
+            statusEl.className = 'pending';
+            statusEl.textContent = 'Testing...';
+            
+            try {
+                const canvas = document.getElementById('canvas-test');
+                const ctx = canvas.getContext('2d');
+                
+                if (!ctx) {
+                    throw new Error("Could not get canvas context");
+                }
+                
+                // Clear canvas
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                // Draw a simple scene
+                ctx.fillStyle = '#3b82f6';
+                ctx.fillRect(50, 25, 200, 100);
+                
+                ctx.strokeStyle = '#ffffff';
+                ctx.lineWidth = 5;
+                ctx.strokeRect(50, 25, 200, 100);
+                
+                ctx.fillStyle = '#ffffff';
+                ctx.font = '20px Arial';
+                ctx.fillText('Canvas Works!', 85, 80);
+                
+                statusEl.className = 'success';
+                statusEl.textContent = '✓ Canvas is supported and working!';
+            } catch (error) {
+                statusEl.className = 'error';
+                statusEl.textContent = `✗ Canvas test failed: ${error.message}`;
+            }
+        }
+        
+        // WebSocket test
+        function runWebSocketTest() {
+            const statusEl = document.getElementById('websocket-status');
+            statusEl.className = 'pending';
+            statusEl.textContent = 'Testing...';
+            
+            if (typeof WebSocket === 'undefined') {
+                statusEl.className = 'error';
+                statusEl.textContent = '✗ WebSockets are not supported in this browser';
+                return;
+            }
+            
+            try {
+                // Just test if WebSocket constructor works, don't actually connect
+                const ws = new WebSocket('wss://echo.websocket.org');
+                
+                ws.onopen = function() {
+                    statusEl.className = 'success';
+                    statusEl.textContent = '✓ WebSockets are supported!';
+                    ws.close();
+                };
+                
+                ws.onerror = function(error) {
+                    // It's okay if the connection fails, we just want to test support
+                    statusEl.className = 'warning';
+                    statusEl.textContent = '⚠ WebSockets are supported but connection failed';
+                };
+                
+                // Set a timeout to avoid waiting too long
+                setTimeout(function() {
+                    if (ws.readyState !== WebSocket.OPEN) {
+                        ws.close();
+                        statusEl.className = 'warning';
+                        statusEl.textContent = '⚠ WebSockets are supported but connection timed out';
+                    }
+                }, 3000);
+            } catch (error) {
+                statusEl.className = 'error';
+                statusEl.textContent = `✗ WebSocket test failed: ${error.message}`;
+            }
+        }
+        
+        // Run all tests
+        function runAllTests() {
+            const resultEl = document.getElementById('all-tests-result');
+            resultEl.textContent = 'Running all tests...';
+            
+            runBasicJsTest();
+            runES6Test();
+            runFetchTest();
+            runStorageTest();
+            runCanvasTest();
+            runWebSocketTest();
+            
+            setTimeout(function() {
+                const results = {
+                    basic: document.getElementById('basic-js-status').className,
+                    es6: document.getElementById('es6-status').className,
+                    fetch: document.getElementById('fetch-status').className,
+                    storage: document.getElementById('storage-status').className,
+                    canvas: document.getElementById('canvas-status').className,
+                    websocket: document.getElementById('websocket-status').className
+                };
+                
+                const allSuccess = Object.values(results).every(result => result === 'success');
+                const anyError = Object.values(results).some(result => result === 'error');
+                
+                if (allSuccess) {
+                    resultEl.className = 'success';
+                    resultEl.textContent = '✓ All tests passed! Your browser is fully compatible.';
+                } else if (anyError) {
+                    resultEl.className = 'error';
+                    resultEl.textContent = '✗ Some tests failed. Your browser may not be fully compatible with the application.';
+                } else {
+                    resultEl.className = 'warning';
+                    resultEl.textContent = '⚠ Some tests had warnings. The application may work but with limited functionality.';
+                }
+            }, 3000);
+        }
+        
+        // Run basic tests on page load
+        window.addEventListener('load', function() {
+            runBasicJsTest();
+            runES6Test();
+        });
+    </script>
+</body>
+</html>

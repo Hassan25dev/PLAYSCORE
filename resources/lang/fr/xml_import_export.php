@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'title' => 'Import/Export XML',
+    'description' => 'Importez et exportez vos données de jeu au format XML pour sauvegarde ou partage.',
+    'export_title' => 'Exporter en XML',
+    'export_description' => 'Exportez vos données utilisateur, évaluations et liste de souhaits au format XML.',
+    'export_button' => 'Exporter mes données',
+    'import_title' => 'Importer depuis XML',
+    'import_description' => 'Importez des données de jeu à partir d\'un fichier XML.',
+    'import_button' => 'Importer XML',
+    'exporting' => 'Exportation en cours...',
+    'importing' => 'Importation en cours...',
+    'export_success' => 'Exportation XML terminée avec succès !',
+    'import_success' => 'Importation XML terminée avec succès !',
+    'error' => 'Une erreur s\'est produite. Veuillez réessayer.',
+    'game_export_title' => 'Exporter les données de jeu',
+    'game_export_description' => 'Exportez les données de jeu spécifiques au format XML.',
+    'export_game_button' => 'Exporter en XML',
+    'no_games' => 'Aucun jeu disponible pour l\'exportation.',
+    'import_error' => 'Erreur lors de l\'importation du fichier XML. Veuillez vérifier le format du fichier et réessayer.',
+    'export_error' => 'Erreur lors de l\'exportation du fichier XML. Veuillez réessayer plus tard.',
+    'file_required' => 'Veuillez sélectionner un fichier XML à importer.',
+    'invalid_format' => 'Format XML invalide. Veuillez vérifier le fichier et réessayer.',
+    'import_complete' => 'Importation terminée avec succès. {count} éléments ont été importés.',
+    'export_complete' => 'Exportation terminée avec succès. Le fichier devrait se télécharger automatiquement.',
+    'admin_only' => 'Cette fonctionnalité est uniquement disponible pour les administrateurs et les développeurs.',
+];

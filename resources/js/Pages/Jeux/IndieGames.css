@@ -1,0 +1,202 @@
+.indie-games-page {
+  min-height: 100vh;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.indie-hero {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  z-index: 1;
+}
+
+.indie-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.indie-subtitle {
+  font-size: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #e0e0e0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+.indie-games-container {
+  padding: 2rem 0 4rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.section-description {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #b0b0b0;
+}
+
+.indie-games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.indie-game-card-wrapper {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.indie-game-card-wrapper:hover {
+  transform: translateY(-10px);
+}
+
+.indie-developer-badge {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  white-space: nowrap;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.no-games-message {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.no-games-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.indie-support-section {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 4rem 0;
+  text-align: center;
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.indie-support-section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.indie-support-section p {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  color: #b0b0b0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.indie-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.indie-feature {
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.indie-feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.indie-feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.indie-feature h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.indie-feature p {
+  color: #b0b0b0;
+  font-size: 1rem;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .indie-title {
+    font-size: 2.5rem;
+  }
+
+  .indie-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .indie-games-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  .indie-features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .indie-feature {
+    width: 100%;
+  }
+}

@@ -1,0 +1,174 @@
+.user-guide-page {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+/* Hero Section */
+.guide-hero {
+  background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 100%);
+  color: white;
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.guide-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.guide-subtitle {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* Guide Content */
+.guide-content {
+  padding: 3rem 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Table of Contents */
+.toc-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.toc-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.toc-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.toc-item {
+  flex: 1 1 200px;
+}
+
+.toc-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  background-color: #f0f4f8;
+  border-radius: 6px;
+  color: #4a148c;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.toc-link:hover {
+  background-color: #e6e9f0;
+  transform: translateY(-2px);
+}
+
+/* Guide Sections */
+.guide-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.guide-section {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  scroll-margin-top: 2rem;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #333;
+  border-bottom: 2px solid #f0f4f8;
+  padding-bottom: 0.75rem;
+}
+
+.section-content {
+  color: #555;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+.section-content p {
+  margin-bottom: 1rem;
+}
+
+/* Additional Help */
+.additional-help {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 2.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.help-actions {
+  margin-top: 1.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background-color: #7b1fa2;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #6a1b9a;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .guide-title {
+    font-size: 2rem;
+  }
+  
+  .guide-subtitle {
+    font-size: 1rem;
+  }
+  
+  .toc-list {
+    flex-direction: column;
+  }
+  
+  .guide-section {
+    padding: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .section-content {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background-color: #f0f8ff;
+        }
+        .success {
+            color: #22c55e;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .info {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="success">✅ Server is Working!</div>
+    <div class="info">
+        <h2>Test Results:</h2>
+        <ul>
+            <li>HTML: ✅ Loaded</li>
+            <li>CSS: ✅ Applied</li>
+            <li>Server: ✅ Responding</li>
+        </ul>
+        <p>Time: <span id="time"></span></p>
+    </div>
+    
+    <script>
+        console.log('Test HTML: JavaScript is working');
+        document.getElementById('time').textContent = new Date().toLocaleTimeString();
+        
+        // Test if we can access the main Laravel app
+        fetch('/')
+            .then(response => {
+                console.log('Main app response status:', response.status);
+                return response.text();
+            })
+            .then(html => {
+                console.log('Main app HTML length:', html.length);
+                if (html.includes('Loading')) {
+                    console.log('Main app is showing loading state');
+                } else {
+                    console.log('Main app HTML preview:', html.substring(0, 200));
+                }
+            })
+            .catch(error => {
+                console.error('Error accessing main app:', error);
+            });
+    </script>
+</body>
+</html>

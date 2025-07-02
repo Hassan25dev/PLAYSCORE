@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Connectivity Test</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2563eb;
+        }
+        .test-card {
+            background-color: #f9fafb;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .success {
+            color: #10b981;
+        }
+        .error {
+            color: #ef4444;
+        }
+        .warning {
+            color: #f59e0b;
+        }
+        .pending {
+            color: #6b7280;
+        }
+        button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 8px;
+        }
+        button:hover {
+            background-color: #1d4ed8;
+        }
+        pre {
+            background-color: #f1f5f9;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Network Connectivity Test</h1>
+    <p>This page tests connectivity to various services needed by the PlayScore application.</p>
+    
+    <div class="test-card">
+        <h2>Laravel API Server</h2>
+        <p>Testing connection to Laravel backend server...</p>
+        <div id="laravel-status" class="pending">Pending...</div>
+        <button onclick="testLaravelServer()">Test Again</button>
+        <div id="laravel-details"></div>
+    </div>
+    
+    <div class="test-card">
+        <h2>Vite Development Server</h2>
+        <p>Testing connection to Vite development server...</p>
+        <div id="vite-status" class="pending">Pending...</div>
+        <button onclick="testViteServer()">Test Again</button>
+        <div id="vite-details"></div>
+    </div>
+    
+    <div class="test-card">
+        <h2>Database Connection</h2>
+        <p>Testing database connectivity through Laravel API...</p>
+        <div id="db-status" class="pending">Pending...</div>
+        <button onclick="testDatabaseConnection()">Test Again</button>
+        <div id="db-details"></div>
+    </div>
+    
+    <div class="test-card">
+        <h2>CORS Test</h2>
+        <p>Testing Cross-Origin Resource Sharing (CORS) configuration...</p>
+        <div id="cors-status" class="pending">Pending...</div>
+        <button onclick="testCORS()">Test Again</button>
+        <div id="cors-details"></div>
+    </div>
+    
+    <div class="test-card">
+        <h2>Browser Information</h2>
+        <pre id="browser-info"></pre>
+    </div>
+    
+    <script>
+        // Display browser information
+        document.getElementById('browser-info').textContent = `
+User Agent: ${navigator.userAgent}
+Platform: ${navigator.platform}
+Cookies Enabled: ${navigator.cookieEnabled}
+Language: ${navigator.language}
+Online: ${navigator.onLine}
+        `;
+        
+        // Test Laravel server
+        function testLaravelServer() {
+            const statusEl = document.getElementById('laravel-status');
+            const detailsEl = document.getElementById('laravel-details');
+            
+            statusEl.className = 'pending';
+            statusEl.textContent = 'Testing...';
+            detailsEl.innerHTML = '';
+            
+            fetch('/json-test')
+                .then(response => response.json())
+                .then(data => {
+                    statusEl.className = 'success';
+                    statusEl.textContent = '✓ Laravel server is working!';
+                    detailsEl.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                })
+                .catch(error => {
+                    statusEl.className = 'error';
+                    statusEl.textContent = '✗ Laravel server test failed';
+                    detailsEl.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+                });
+        }
+        
+        // Test Vite server
+        function testViteServer() {
+            const statusEl = document.getElementById('vite-status');
+            const detailsEl = document.getElementById('vite-details');
+            
+            statusEl.className = 'pending';
+            statusEl.textContent = 'Testing...';
+            detailsEl.innerHTML = '';
+            
+            // First get Vite configuration from Laravel
+            fetch('/vite-status')
+                .then(response => response.json())
+                .then(data => {
+                    const viteConfig = data.vite_config;
+                    const viteUrl = `http://${viteConfig.host || 'localhost'}:${viteConfig.port || 5176}`;
+                    
+                    detailsEl.innerHTML = `<p>Vite server URL: ${viteUrl}</p>`;
+                    
+                    // Now try to connect to Vite server
+                    return fetch(viteUrl, { mode: 'no-cors' })
+                        .then(() => {
+                            statusEl.className = 'success';
+                            statusEl.textContent = '✓ Vite server appears to be running!';
+                            detailsEl.innerHTML += `<p class="success">Connection to Vite server successful</p>`;
+                        })
+                        .catch(error => {
+                            statusEl.className = 'error';
+                            statusEl.textContent = '✗ Vite server test failed';
+                            detailsEl.innerHTML += `<p class="error">Error connecting to Vite server: ${error.message}</p>`;
+                        });
+                })
+                .catch(error => {
+                    statusEl.className = 'error';
+                    statusEl.textContent = '✗ Could not get Vite configuration';
+                    detailsEl.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+                });
+        }
+        
+        // Test database connection
+        function testDatabaseConnection() {
+            const statusEl = document.getElementById('db-status');
+            const detailsEl = document.getElementById('db-details');
+            
+            statusEl.className = 'pending';
+            statusEl.textContent = 'Testing...';
+            detailsEl.innerHTML = '';
+            
+            fetch('/db-test')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === 'database_connected') {
+                        statusEl.className = 'success';
+                        statusEl.textContent = '✓ Database connection successful!';
+                    } else {
+                        statusEl.className = 'error';
+                        statusEl.textContent = '✗ Database connection failed';
+                    }
+                    detailsEl.innerHTML = `<pre>${JSON.stringify(data, null, 2)}</pre>`;
+                })
+                .catch(error => {
+                    statusEl.className = 'error';
+                    statusEl.textContent = '✗ Database test failed';
+                    detailsEl.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+                });
+        }
+        
+        // Test CORS
+        function testCORS() {
+            const statusEl = document.getElementById('cors-status');
+            const detailsEl = document.getElementById('cors-details');
+            
+            statusEl.className = 'pending';
+            statusEl.textContent = 'Testing...';
+            detailsEl.innerHTML = '';
+            
+            // Get the Vite server URL from the Laravel API
+            fetch('/vite-status')
+                .then(response => response.json())
+                .then(data => {
+                    const viteConfig = data.vite_config;
+                    const viteUrl = `http://${viteConfig.host || 'localhost'}:${viteConfig.port || 5176}/@vite/client`;
+                    
+                    // Try a direct CORS request to the Vite server
+                    return fetch(viteUrl)
+                        .then(response => {
+                            if (response.ok) {
+                                statusEl.className = 'success';
+                                statusEl.textContent = '✓ CORS is properly configured!';
+                                detailsEl.innerHTML = `<p class="success">Successfully made a cross-origin request to Vite server</p>`;
+                            } else {
+                                statusEl.className = 'warning';
+                                statusEl.textContent = '⚠ CORS test returned non-OK response';
+                                detailsEl.innerHTML = `<p class="warning">Response status: ${response.status} ${response.statusText}</p>`;
+                            }
+                        })
+                        .catch(error => {
+                            statusEl.className = 'error';
+                            statusEl.textContent = '✗ CORS test failed';
+                            detailsEl.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+                            detailsEl.innerHTML += `<p>This may indicate a CORS issue. Check browser console for more details.</p>`;
+                        });
+                })
+                .catch(error => {
+                    statusEl.className = 'error';
+                    statusEl.textContent = '✗ Could not get Vite configuration';
+                    detailsEl.innerHTML = `<p class="error">Error: ${error.message}</p>`;
+                });
+        }
+        
+        // Run all tests on page load
+        window.addEventListener('load', function() {
+            testLaravelServer();
+            testViteServer();
+            testDatabaseConnection();
+            testCORS();
+        });
+    </script>
+</body>
+</html>

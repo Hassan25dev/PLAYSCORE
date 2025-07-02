@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Vite Connection Test</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Vite Connection Test</h1>
+    <p>This page tests if your browser can connect to the Vite development server.</p>
+    <div id="status">Testing connection...</div>
+
+    <script>
+        // Test connection to Vite server
+        const viteServerUrl = 'http://localhost:5176';
+        
+        fetch(viteServerUrl, { mode: 'no-cors' })
+            .then(() => {
+                document.getElementById('status').innerHTML = 
+                    '<span style="color: green;">✓ Connection to Vite server successful!</span>';
+            })
+            .catch((error) => {
+                document.getElementById('status').innerHTML = 
+                    '<span style="color: red;">✗ Failed to connect to Vite server: ' + error.message + '</span>';
+            });
+    </script>
+</body>
+</html>
