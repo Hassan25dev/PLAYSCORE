@@ -54,8 +54,7 @@ PlayScore est une application web permettant aux utilisateurs de découvrir, not
 ### Login Page
 ![Login Page](<img width="2418" height="1145" alt="image" src="https://github.com/user-attachments/assets/d3b9d744-fa61-4801-8703-9ec9b4461f49" />)
 
-### Admin Panel
-![Admin Panel](screenshots/admin_panel.png)
+
 
 
 
@@ -126,13 +125,21 @@ Projet open-source sous licence MIT.
 💡 Future Improvements
 
 This project can be extended into a more advanced digital gaming analytics and community platform:
+
 Interactive analytics dashboard (ratings, engagement, trends)
+
 Recommendation system based on user behavior
+
 Automated game review moderation using AI
+
 Advanced user segmentation (players / developers / admins)
+
 REST API for mobile application
+
 Performance optimization & caching layer
+
 Deployment with Docker & CI/CD pipeline
+
 These improvements aim to transform PlayScore into a scalable and production-ready platform.
 
 ---
@@ -150,6 +157,7 @@ His guidance, technical rigor, and commitment to best development practices play
 Author: HASSANE AMANAD
 
 Context:
+
 Final year academic and portfolio project developed during my Digital Development (Full Stack) training at ISTA HH1.
 The project focuses on designing and implementing a complete web platform with real-world architecture and business logic.
 
