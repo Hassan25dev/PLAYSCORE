@@ -91,13 +91,23 @@ Public API
 
 🤝 Contribution
 
-Contributions are welcome:
+Contributions are welcome and appreciated!
 
-Fork the project
+To contribute:
 
-Create a feature branch
+1-Fork the project
 
-Submit a pull request
+2-Create your feature branch
+
+``` bash
+git checkout -b feature/your-feature-name
+```
+
+3-Commit your changes
+
+4-Push to your branch
+
+5-Open a Pull Request
 
 ---
 
@@ -140,14 +150,13 @@ His guidance, technical rigor, and commitment to best development practices play
 
 Author: HASSANE AMANAD
 
-Context:
+🎓 Context
 
 Final year academic and portfolio project developed during my Digital Development (Full Stack) training at ISTA HH1.
-
 The project focuses on designing and implementing a complete web platform with real-world architecture and business logic.
 
 
-Skills Highlighted:
+🧠 Skills Highlighted
 
 Full-stack web development (Laravel, Tailwind CSS)
 
@@ -163,6 +172,7 @@ RESTful design concepts
 
 Professional technical documentation
 
+----
 License: MIT
 
 GitHub: @Hassan25dev
