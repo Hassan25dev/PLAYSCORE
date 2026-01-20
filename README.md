@@ -1,67 +1,153 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<img width="2453" height="1136" alt="image" src="https://github.com/user-attachments/assets/ace962d5-87f2-4129-8c76-1668926f1604" /># 🎮 PlayScore – Plateforme d’évaluation de jeux vidéo
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-<img width="1479" height="730" alt="image" src="https://github.com/user-attachments/assets/dc69ac20-4705-47af-a677-0b1cf9b5928a" />
+PlayScore est une application web permettant aux utilisateurs de découvrir, noter et commenter des jeux vidéo, avec un espace dédié aux développeurs et un tableau de bord administrateur pour la modération et l’analyse.
 
-## About Laravel
+> Projet académique & personnel réalisé avec Laravel, Inertia.js et Tailwind CSS.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Fonctionnalités
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 👤 Utilisateurs
+- Authentification sécurisée
+- Consultation des jeux
+- Notation et commentaires
+- Wishlist personnalisée
+- Export PDF des fiches jeux
 
-## Learning Laravel
+### 🎮 Développeurs
+- Soumission de jeux
+- Suivi des évaluations
+- Dashboard dédié
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 🛠 Administrateurs
+- Modération des commentaires et avis
+- Gestion des utilisateurs
+- Validation des jeux
+- Statistiques et graphiques
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🧰 Stack Technique
 
-## Laravel Sponsors
+| Technologie | Usage |
+|-----------|------|
+| Laravel | Backend |
+| Inertia.js | SPA Bridge |
+| Vue.js / Blade | Frontend |
+| Tailwind CSS | UI |
+| MySQL | Base de données |
+| Vite | Build |
+| Chart.js | Graphiques |
+| DomPDF | Export PDF |
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## 📸 Aperçu
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+<img width="2464" height="1137" alt="image" src="https://github.com/user-attachments/assets/93ee67a9-5e9a-4026-b635-819b1257d81e" />
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+## ⚙️ Installation
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+git clone https://github.com/TON-USERNAME/playscore.git
+cd playscore
+composer install
+npm install
+cp .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+npm run dev
+php artisan serve
+```
+-----
 
-## License
+🔐 Configuration
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Renseigne ton fichier .env :
+
+``` bash
+DB_DATABASE=playscore
+DB_USERNAME=root
+DB_PASSWORD=
+MAIL_MAILER=smtp
+```
+----
+
+🧪 Tests
+
+``` bash
+php artisan test
+```
+----
+
+📈 Roadmap
+
+ Auth via réseaux sociaux
+ Recommandation par IA
+ Version mobile
+ API publique
+
+---
+
+🤝 Contribution
+
+Les contributions sont bienvenues :
+Fork
+Branche feature
+Pull request
+
+---
+
+📄 Licence
+
+Projet open-source sous licence MIT.
+---
+
+💡 Future Improvements
+
+This project can be extended into a more advanced digital gaming analytics and community platform:
+Interactive analytics dashboard (ratings, engagement, trends)
+Recommendation system based on user behavior
+Automated game review moderation using AI
+Advanced user segmentation (players / developers / admins)
+REST API for mobile application
+Performance optimization & caching layer
+Deployment with Docker & CI/CD pipeline
+These improvements aim to transform PlayScore into a scalable and production-ready platform.
+
+---
+
+🙏 Acknowledgements
+
+This project was developed as a Final Year Project (Projet de Fin d’Études) as part of the Digital Development – Full Stack program at ISTA HH1, under the academic supervision of Youssef El Kabir.
+
+His guidance, technical rigor, and commitment to best development practices played a key role in shaping both the quality of the application and my professional approach to full-stack development.
+
+-----
+
+👤 About
+
+Author: HASSANE AMANAD
+
+Context:
+Final year academic and portfolio project developed during my Digital Development (Full Stack) training at ISTA HH1.
+The project focuses on designing and implementing a complete web platform with real-world architecture and business logic.
+
+Skills Highlighted:
+
+Full-stack web development (Laravel, Tailwind CSS)
+MVC architecture & clean code practices
+Database modeling and relational design
+Authentication, roles & permissions
+Dashboard & admin panel development
+RESTful design concepts
+Professional technical documentation
+
+License: MIT
+GitHub: @Hassan25dev
