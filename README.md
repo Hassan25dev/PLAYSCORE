@@ -118,23 +118,24 @@ This project is open-source under the MIT License.
 
 💡 Future Improvements
 
-This project can be extended into a more advanced digital gaming analytics and community platform:
 
-Interactive analytics dashboard (ratings, engagement, trends)
++ This project can be extended into a more advanced digital gaming analytics and community platform:
 
-Recommendation system based on user behavior
++ Interactive analytics dashboard (ratings, engagement, trends)
 
-Automated game review moderation using AI
++ Recommendation system based on user behavior
 
-Advanced user segmentation (players / developers / admins)
++ Automated game review moderation using AI
 
-REST API for mobile application
++ Advanced user segmentation (players / developers / admins)
 
-Performance optimization & caching layer
++ REST API for mobile application
 
-Deployment with Docker & CI/CD pipeline
++ Performance optimization & caching layer
 
-These improvements aim to transform PlayScore into a scalable and production-ready platform.
++ Deployment with Docker & CI/CD pipeline
+
++ These improvements aim to transform PlayScore into a scalable and production-ready platform.
 
 ---
 
@@ -158,19 +159,19 @@ The project focuses on designing and implementing a complete web platform with r
 
 🧠 Skills Highlighted
 
-Full-stack web development (Laravel, Tailwind CSS)
+✔ Full-stack web development (Laravel, Tailwind CSS)
 
-MVC architecture & clean code practices
+✔ MVC architecture & clean code practices
 
-Database modeling and relational design
+✔ Database modeling and relational design
 
-Authentication, roles & permissions
+✔ Authentication, roles & permissions
 
-Dashboard & admin panel development
+✔ Dashboard & admin panel development
 
-RESTful design concepts
+✔ RESTful design concepts
 
-Professional technical documentation
+✔ Professional technical documentation
 
 ----
 License: MIT
