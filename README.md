@@ -43,27 +43,6 @@ PlayScore est une application web permettant aux utilisateurs de découvrir, not
 
 ---
 
-## 📸 Screenshots
-
-### Home Page
-![Home Page](<img width="2464" height="1137" alt="image" src="https://github.com/user-attachments/assets/93ee67a9-5e9a-4026-b635-819b1257d81e" />)
-
-### Register Page
-![Register page](<img width="2453" height="1136" alt="image" src="https://github.com/user-attachments/assets/ace962d5-87f2-4129-8c76-1668926f1604" />)
-
-### Login Page
-![Login Page](<img width="2418" height="1145" alt="image" src="https://github.com/user-attachments/assets/d3b9d744-fa61-4801-8703-9ec9b4461f49" />)
-
-
-
-
-
-
-
-
-
-
----
 
 ## ⚙️ Installation
 
@@ -164,12 +143,19 @@ The project focuses on designing and implementing a complete web platform with r
 Skills Highlighted:
 
 Full-stack web development (Laravel, Tailwind CSS)
+
 MVC architecture & clean code practices
+
 Database modeling and relational design
+
 Authentication, roles & permissions
+
 Dashboard & admin panel development
+
 RESTful design concepts
+
 Professional technical documentation
 
 License: MIT
+
 GitHub: @Hassan25dev
