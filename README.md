@@ -1,34 +1,34 @@
-# 🎮 PlayScore – Plateforme d’évaluation de jeux vidéo
+# 🎮 PlayScore – Video Game Rating Platform
 
-PlayScore est une application web permettant aux utilisateurs de découvrir, noter et commenter des jeux vidéo, avec un espace dédié aux développeurs et un tableau de bord administrateur pour la modération et l’analyse.
+PlayScore is a web application that allows users to discover, rate, and review video games, with a dedicated space for developers and an administrator dashboard for moderation and analytics.
 
-> Projet académique & personnel réalisé avec Laravel, Inertia.js et Tailwind CSS.
-
----
-
-## 🚀 Fonctionnalités
-
-### 👤 Utilisateurs
-- Authentification sécurisée
-- Consultation des jeux
-- Notation et commentaires
-- Wishlist personnalisée
-- Export PDF des fiches jeux
-
-### 🎮 Développeurs
-- Soumission de jeux
-- Suivi des évaluations
-- Dashboard dédié
-
-### 🛠 Administrateurs
-- Modération des commentaires et avis
-- Gestion des utilisateurs
-- Validation des jeux
-- Statistiques et graphiques
+> Academic & personal project built with Laravel, Inertia.js, and Tailwind CSS.
 
 ---
 
-## 🧰 Stack Technique
+## 🚀 Features
+
+### 👤 Users
+- Secure authentication
+- Browse video games
+- Ratings and reviews
+- Personalized wishlist
+- PDF export of game sheets
+
+### 🎮 Developers
+- Game submission
+- Rating and review tracking
+- Dedicated dashboard
+
+### 🛠 Administrators
+- Comment and review moderation
+- User management
+- Game validation
+- Statistics and charts
+
+---
+
+## 🧰 Tech Stack
 
 | Technologie | Usage |
 |-----------|------|
@@ -61,7 +61,7 @@ php artisan serve
 
 🔐 Configuration
 
-Renseigne ton fichier .env :
+Update your .env file:
 
 ``` bash
 DB_DATABASE=playscore
@@ -80,25 +80,30 @@ php artisan test
 
 📈 Roadmap
 
- Auth via réseaux sociaux
- Recommandation par IA
- Version mobile
- API publique
+Social media authentication
 
+AI-based recommendation system
+
+Mobile version
+
+Public API
 ---
 
 🤝 Contribution
 
-Les contributions sont bienvenues :
-Fork
-Branche feature
-Pull request
+Contributions are welcome:
+
+Fork the project
+
+Create a feature branch
+
+Submit a pull request
 
 ---
 
-📄 Licence
+📄 License
 
-Projet open-source sous licence MIT.
+This project is open-source under the MIT License.
 ---
 
 💡 Future Improvements
@@ -138,7 +143,9 @@ Author: HASSANE AMANAD
 Context:
 
 Final year academic and portfolio project developed during my Digital Development (Full Stack) training at ISTA HH1.
+
 The project focuses on designing and implementing a complete web platform with real-world architecture and business logic.
+
 
 Skills Highlighted:
 
