@@ -89,7 +89,7 @@ php artisan test
 
 + Mobile version
 
-Public API
++ Public API
 
 ---
 
