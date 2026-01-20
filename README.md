@@ -57,6 +57,7 @@ php artisan migrate --seed
 npm run dev
 php artisan serve
 ```
+
 -----
 
 🔐 Configuration
@@ -69,6 +70,7 @@ DB_USERNAME=root
 DB_PASSWORD=
 MAIL_MAILER=smtp
 ```
+
 ----
 
 🧪 Tests
@@ -80,13 +82,15 @@ php artisan test
 
 📈 Roadmap
 
-Social media authentication
 
-AI-based recommendation system
++ Social media authentication
 
-Mobile version
++ AI-based recommendation system
+
++ Mobile version
 
 Public API
+
 ---
 
 🤝 Contribution
@@ -95,26 +99,23 @@ Contributions are welcome and appreciated!
 
 To contribute:
 
-1-Fork the project
+1- Fork the project
 
-2-Create your feature branch
+2- Create your feature branch
 
 ``` bash
 git checkout -b feature/your-feature-name
 ```
 
-3-Commit your changes
+3- Commit your changes
 
-4-Push to your branch
+4- Push to your branch
 
-5-Open a Pull Request
+5- Open a Pull Request
+
 
 ---
 
-📄 License
-
-This project is open-source under the MIT License.
----
 
 💡 Future Improvements
 
@@ -136,6 +137,7 @@ This project is open-source under the MIT License.
 + Deployment with Docker & CI/CD pipeline
 
 + These improvements aim to transform PlayScore into a scalable and production-ready platform.
+  
 
 ---
 
@@ -174,6 +176,7 @@ The project focuses on designing and implementing a complete web platform with r
 ✔ Professional technical documentation
 
 ----
+
 License: MIT
 
 GitHub: @Hassan25dev
